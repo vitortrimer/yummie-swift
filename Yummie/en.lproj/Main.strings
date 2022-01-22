@@ -1,0 +1,12 @@
+
+/* Class = "UILabel"; text = "Quick Delivery At Your Doorstep"; ObjectID = "3qE-TT-9Cj"; */
+"3qE-TT-9Cj.text" = "Quick Delivery At Your Doorstep";
+
+/* Class = "UIButton"; configuration.title = "Next"; ObjectID = "MTf-5X-6w4"; */
+"MTf-5X-6w4.configuration.title" = "Next";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "MTf-5X-6w4"; */
+"MTf-5X-6w4.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Home Delivery and online reservation system for restaurants and Coffees"; ObjectID = "NTA-vf-NVR"; */
+"NTA-vf-NVR.text" = "Home Delivery and online reservation system for restaurants and Coffees";
