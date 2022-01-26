@@ -14,8 +14,10 @@ class OnboardingViewController: UIViewController {
     @IBOutlet weak var onboardingPageControl: UIPageControl!
     @IBOutlet weak var nextButton: UIButton!
     
+    
     var currentPage = 0 {
         didSet {
+            onboardingPageControl.currentPage = currentPage
             if currentPage == slides.count-1 {
                 nextButton.setTitle("Get Started", for: .normal)
             } else {
@@ -39,14 +41,19 @@ class OnboardingViewController: UIViewController {
                 OnboardingSlide(title: "Instant World-Wide Delivery", description: "Your orders will be delivered instantly irrespective of your location around the world.", image: #imageLiteral(resourceName: "slide3"))
             ]
         
-        
+        onboardingPageControl.numberOfPages = slides.count
     }
     
-
     @IBAction func nextButtonTapped(_ sender: Any) {
-        currentPage += 1
-        let indexPath = IndexPath(item: currentPage, section: 0)
-        onboardingCollectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+        if currentPage == slides.count - 1 {
+            debugPrint("works")
+        } else {
+            currentPage += 1
+            let indexPath = IndexPath(item: currentPage, section: 0)
+            let rect = self.onboardingCollectionView.layoutAttributesForItem(at:indexPath)?.frame
+            self.onboardingCollectionView.scrollRectToVisible(rect!, animated: true)
+            
+        }
     }
     
     
@@ -72,7 +79,6 @@ extension OnboardingViewController: UICollectionViewDelegate, UICollectionViewDa
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         let width = scrollView.frame.width
         currentPage = Int(scrollView.contentOffset.x / width)
-        onboardingPageControl.currentPage = currentPage
     }
     
 }
