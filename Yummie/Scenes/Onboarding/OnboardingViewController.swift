@@ -46,7 +46,10 @@ class OnboardingViewController: UIViewController {
     
     @IBAction func nextButtonTapped(_ sender: Any) {
         if currentPage == slides.count - 1 {
-            debugPrint("works")
+            let controller = storyboard?.instantiateViewController(withIdentifier: "homeNagivationController") as! UINavigationController
+            controller.modalPresentationStyle = .fullScreen
+            controller.modalTransitionStyle = .crossDissolve
+            present(controller, animated: true, completion: nil)
         } else {
             currentPage += 1
             let indexPath = IndexPath(item: currentPage, section: 0)
